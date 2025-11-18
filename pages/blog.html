@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog e Transparência | ONG [Nome]</title>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+
+    <style>
+      .blog-container {
+        display: grid;
+        grid-template-columns: 2fr 1fr; 
+        gap: 40px;
+        margin-top: 40px;
+      }
+
+      .post-card {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        transition: transform 0.3s;
+      }
+
+      .post-card:hover {
+        transform: translateY(-5px); /* Efeito de elevação */
+      }
+
+      .post-img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .post-content {
+        padding: 25px;
+      }
+
+      .post-meta {
+        font-size: 0.85rem;
+        color: #777;
+        margin-bottom: 10px;
+        display: flex;
+        gap: 15px;
+      }
+
+      .post-meta span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .tag {
+        background-color: #e8f5e9;
+        color: var(--cor-primaria);
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 0.75rem;
+      }
+
+      /* Barra Lateral (Sidebar) */
+      .sidebar-widget {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border: 1px solid #eee;
+      }
+
+      .sidebar-widget h3 {
+        border-bottom: 2px solid var(--cor-secundaria);
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+
+      .lista-links li {
+        margin-bottom: 10px;
+        border-bottom: 1px solid #f4f4f4;
+        padding-bottom: 5px;
+      }
+      
+      .lista-links a:hover {
+        color: var(--cor-primaria);
+        padding-left: 5px;
+        transition: 0.3s;
+      }
+
+      /* Newsletter (Requisito de Engajamento) */
+      .newsletter-box {
+        background-color: var(--cor-primaria);
+        color: white;
+        text-align: center;
+        padding: 30px;
+        border-radius: 10px;
+        margin-top: 40px;
+      }
+      
+      .newsletter-form {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 15px;
+        flex-wrap: wrap;
+      }
+      
+      .newsletter-form input {
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        width: 300px;
+      }
+
+      @media (max-width: 768px) {
+        .blog-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <a href="../index.html" class="logo"><img src="../assets/icons/logo.svg" alt="Logo" style="height: 40px;"></a>
+        <nav class="main-nav">
+          <ul class="nav-list">
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="contato.html" class="btn-doar">Doe Agora</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      
+      <section class="section-header" style="margin-top: 40px;">
+        <h2>Notícias e Transparência</h2>
+        <p>Acompanhe o impacto das nossas ações e a prestação de contas.</p>
+      </section>
+
+      <div class="blog-container">
+        
+        <section id="feed-noticias">
+           <p>Carregando notícias...</p>
+        </section>
+
+        <aside>
+          <div class="sidebar-widget">
+            <h3>Categorias</h3>
+            <ul class="lista-links">
+              <li><a href="#">Ações Sociais (12)</a></li>
+              <li><a href="#">Transparência (5)</a></li>
+              <li><a href="#">Eventos (8)</a></li>
+              <li><a href="#">Voluntariado (3)</a></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-widget">
+            <h3>Transparência</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 10px;">Acesse nossos relatórios financeiros.</p>
+            <ul class="lista-links">
+              <li><a href="#">📄 Relatório Anual 2023</a></li>
+              <li><a href="#">📄 Balanço Financeiro Q3</a></li>
+              <li><a href="#">📄 Estatuto Social</a></li>
+            </ul>
+          </div>
+        </aside>
+
+      </div>
+
+      <section class="newsletter-box">
+        <h3>Fique por dentro!</h3>
+        <p>Receba nosso boletim mensal com histórias de impacto.</p>
+        <form class="newsletter-form" onsubmit="alert('Obrigado por assinar!'); return false;">
+          <input type="email" placeholder="Seu melhor e-mail" required>
+          <button type="submit" class="cta-button" style="border: 1px solid white;">Inscrever-se</button>
+        </form>
+      </section>
+
+    </main>
+
+    <footer class="main-footer">
+      <div class="container">
+        <p class="copyright">© 2024 ONG [Nome]. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <script>
+      const noticias = [
+        {
+          id: 1,
+          titulo: "Reforma da Escola Comunitária concluída com sucesso",
+          data: "15 Nov 2024",
+          categoria: "Ações Sociais",
+          resumo: "Graças aos doadores, entregamos 5 novas salas de aula equipadas para as crianças do bairro.",
+          imagem: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&auto=format&fit=crop&q=60"
+        },
+        {
+          id: 2,
+          titulo: "Prestação de Contas: Onde foi investido seu dinheiro",
+          data: "01 Nov 2024",
+          categoria: "Transparência",
+          resumo: "Divulgamos o relatório detalhado do último trimestre. Confira como cada centavo foi utilizado para gerar impacto.",
+          imagem: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&auto=format&fit=crop&q=60"
+        },
+        {
+          id: 3,
+          titulo: "Dia do Voluntário: Participe do nosso evento anual",
+          data: "28 Out 2024",
+          categoria: "Eventos",
+          resumo: "No próximo sábado, vamos reunir 200 voluntários para um mutirão de limpeza e plantio.",
+          imagem: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&auto=format&fit=crop&q=60"
+        }
+      ];
+
+      const feedContainer = document.getElementById('feed-noticias');
+
+      function carregarNoticias() {
+        const html = noticias.map(noticia => `
+          <article class="post-card">
+            <img src="${noticia.imagem}" alt="${noticia.titulo}" class="post-img" loading="lazy">
+            <div class="post-content">
+              <div class="post-meta">
+                <span class="tag">${noticia.categoria}</span>
+                <time>📅 ${noticia.data}</time>
+              </div>
+              <h3 style="margin-bottom: 10px; color: #333;">${noticia.titulo}</h3>
+              <p style="color: #666; margin-bottom: 15px;">${noticia.resumo}</p>
+              <a href="#" style="color: var(--cor-primaria); font-weight: bold;">Ler matéria completa →</a>
+            </div>
+          </article>
+        `).join('');
+
+        feedContainer.innerHTML = html;
+      }
+
+      carregarNoticias();
+    </script>
+  </body>
+</html>

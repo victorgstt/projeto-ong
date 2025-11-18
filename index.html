@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Plataforma oficial da ONG [Nome], transformando vidas através da educação e sustentabilidade."
+    />
+    <title>ONG [Nome] | Início</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img src="assets/icons/logo.svg" alt="Logo da ONG" />
+        </a>
+
+        <nav class="main-nav">
+          <button class="mobile-menu-btn" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+          </button>
+
+          <ul class="nav-list">
+            <li><a href="index.html" class="active">Início</a></li>
+            <li><a href="pages/blog.html">Blog & Notícias</a></li>
+            <li><a href="pages/projetos.html">Projetos</a></li>
+            <li><a href="pages/voluntariado.html">Seja Voluntário</a></li>
+            <li><a href="pages/doacao.html" class="btn-doar">Doe Agora</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="hero-section">
+        <div class="container">
+          <h1>Transformando realidades através da união</h1>
+          <p>
+            Junte-se a nós e ajude a construir um futuro mais justo para todos.
+          </p>
+          <a href="pages/voluntariado.html" class="cta-button">Quero Ajudar</a>
+        </div>
+      </section>
+
+      <section id="destaques" class="section-padrao">
+        <div class="container">
+          <div class="section-header">
+            <h2>Nossos Projetos Recentes</h2>
+            <p>Conheça as iniciativas que estão mudando o mundo.</p>
+          </div>
+
+          <div id="lista-projetos" class="grid-projetos">
+            <p class="loading">Carregando projetos...</p>
+          </div>
+
+          <div class="ver-mais-container">
+            <a href="pages/projetos.html">Ver todos os projetos</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre" class="section-cinza">
+        <div class="container flex-row">
+          <div class="texto-sobre">
+            <h2>Quem Somos</h2>
+            <p>
+              Fundada em 2024, nossa ONG atua no combate à desigualdade... Lorem
+              Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets
+              containing Lorem Ipsum passages, and more recently with desktop
+              publishing software like Aldus PageMaker including versions of
+              Lorem Ipsum.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-col">
+          <h3>ONG [Nome]</h3>
+          <p>Rua Exemplo, 123 - São Paulo, SP</p>
+          <p>contato@ongexemplo.org</p>
+        </div>
+        <div class="footer-col">
+          <h3>Links Rápidos</h3>
+          <ul>
+            <li><a href="pages/voluntariado.html">Voluntariado</a></li>
+            <li><a href="pages/blog.html">Transparência</a></li>
+            <li>
+              <a href="pages/admin-dashboard.html">Área Administrativa</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Redes Sociais</h3>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="Instagram">IG</a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2024 ONG [Nome]. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

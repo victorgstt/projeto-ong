@@ -1,0 +1,99 @@
+/* css/responsive.css */
+
+/* Regras para Tablets e Celulares (telas menores que 768px) */
+@media (max-width: 768px) {
+
+  /* --- GERAL --- */
+  .container {
+    padding: 0 20px; /* Margem lateral um pouco maior no mobile */
+  }
+
+  h1 { font-size: 2rem; } /* Diminui títulos gigantes */
+  h2 { font-size: 1.5rem; }
+
+  /* --- MENU DE NAVEGAÇÃO (Hambúrguer) --- */
+  
+  /* 1. Mostra o botão do menu (os 3 risquinhos) */
+  .mobile-menu-btn {
+    display: block; /* Estava none no layout.css */
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Estilo dos risquinhos do botão */
+  .mobile-menu-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--cor-primaria);
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  /* 2. Esconde a lista de links original */
+  .nav-list {
+    display: none; /* Some da barra superior */
+    position: absolute;
+    top: 70px; /* Logo abaixo do header */
+    right: 0;
+    width: 100%; /* Ocupa a tela toda */
+    background-color: white;
+    flex-direction: column; /* Links um embaixo do outro */
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    gap: 20px;
+    z-index: 999;
+  }
+
+  /* 3. Classe que o JavaScript vai adicionar quando clicar */
+  .nav-list.active {
+    display: flex; /* Aparece magicamente */
+    animation: descerMenu 0.3s ease;
+  }
+
+  /* --- AJUSTES DE LAYOUT --- */
+
+  /* Transforma linhas (flex-row) em colunas */
+  .flex-row {
+    flex-direction: column;
+  }
+
+  /* Hero Banner - Texto centralizado e menor */
+  .hero-section {
+    height: auto;
+    padding: 60px 0;
+    text-align: center;
+  }
+
+  /* Rodapé - Colunas empilhadas */
+  .main-footer .container {
+    grid-template-columns: 1fr; /* Uma coluna só */
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-col h3 {
+    border-bottom: none; /* Remove linha decorativa no mobile */
+    margin-bottom: 10px;
+  }
+
+  /* Ajuste para a página de Contato e Blog */
+  .contato-grid, 
+  .blog-container {
+    grid-template-columns: 1fr !important; /* Força 1 coluna */
+  }
+  
+  /* Mapa e Sidebar ficam abaixo do conteúdo principal */
+  .mapa-container {
+    height: 300px;
+  }
+}
+
+/* Animação simples para o menu */
+@keyframes descerMenu {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

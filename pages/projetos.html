@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nossos Projetos | ONG [Nome]</title>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    
+    <style>
+      .filtros {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+      
+      .btn-filtro {
+        background: transparent;
+        border: 2px solid var(--cor-primaria);
+        padding: 8px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+        color: var(--cor-primaria);
+        transition: all 0.3s;
+      }
+      
+      .btn-filtro:hover, .btn-filtro.ativo {
+        background: var(--cor-primaria);
+        color: white;
+      }
+      
+      /* Reutilizando o Grid de Projetos */
+      .grid-projetos {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <a href="../index.html" class="logo"><img src="../assets/icons/logo.svg" alt="Logo" style="height: 40px;"></a>
+        <nav class="main-nav">
+          <ul class="nav-list">
+            <li><a href="../index.html">Início</a></li> <li><a href="blog.html">Blog</a></li>       <li><a href="projetos.html" class="active">Projetos</a></li>
+            <li><a href="voluntariado.html">Seja Voluntário</a></li>
+            <li><a href="doacao.html" class="btn-doar">Doe Agora</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section-padrao">
+        <div class="container">
+          <div class="section-header">
+            <h2>Nossas Iniciativas</h2>
+            <p>Conheça em detalhes como estamos atuando.</p>
+          </div>
+
+          <div class="filtros">
+            <button class="btn-filtro ativo" onclick="filtrar('todos', this)">Todos</button>
+            <button class="btn-filtro" onclick="filtrar('educacao', this)">Educação</button>
+            <button class="btn-filtro" onclick="filtrar('sustentabilidade', this)">Sustentabilidade</button>
+            <button class="btn-filtro" onclick="filtrar('social', this)">Social</button>
+          </div>
+
+          <div id="todos-projetos" class="grid-projetos">
+            </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container">
+        <p class="copyright">&copy; 2024 ONG [Nome].</p>
+      </div>
+    </footer>
+
+    <script src="../js/data.js"></script>
+
+    <script>
+      const container = document.getElementById('todos-projetos');
+
+      // 1. Adicionamos categorias aos dados (simulando atualização no data.js)
+      // Nota: Em um projeto real, isso estaria direto no data.js
+      const projetosCompletos = projetosData.map(p => {
+        // Lógica simples para dar categoria baseada no titulo (apenas para o exemplo funcionar sem você editar o data.js)
+        let cat = 'social'; 
+        if(p.titulo.includes('Educação')) cat = 'educacao';
+        if(p.titulo.includes('Horta')) cat = 'sustentabilidade';
+        return { ...p, categoria: cat }; // Adiciona a propriedade categoria
+      });
+
+      // 2. Função de Renderizar (Callback)
+      function renderizar(lista) {
+        container.innerHTML = lista.map(projeto => `
+            <article class="card-projeto" style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+              <div style="height: 200px; overflow: hidden;">
+                <img src="${projeto.imagem}" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div style="padding: 20px;">
+                <small style="color: var(--cor-secundaria); font-weight: bold; text-transform: uppercase;">${projeto.categoria}</small>
+                <h3 style="margin: 10px 0;">${projeto.titulo}</h3>
+                <p>${projeto.descricao}</p>
+              </div>
+            </article>
+        `).join('');
+      }
+
+      // 3. Função de Filtrar
+      function filtrar(categoria, botao) {
+        // Gestão visual dos botões (muda a cor do ativo)
+        document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('ativo'));
+        botao.classList.add('ativo');
+
+        // Lógica do Filtro
+        if (categoria === 'todos') {
+          renderizar(projetosCompletos);
+        } else {
+          // AQUI ESTÁ O CONCEITO QUE VOCÊ PRECISA APRENDER: .filter()
+          const filtrados = projetosCompletos.filter(projeto => projeto.categoria === categoria);
+          renderizar(filtrados);
+        }
+      }
+
+      // Carrega tudo ao iniciar
+      renderizar(projetosCompletos);
+    </script>
+  </body>
+</html>

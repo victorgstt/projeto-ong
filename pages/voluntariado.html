@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seja Voluntário | ONG [Nome]</title>
+
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    
+    <style>
+      .form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      }
+      
+      .form-group {
+        margin-bottom: 20px;
+      }
+      
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--cor-texto);
+      }
+      
+      input, select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+      }
+      
+      input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: var(--cor-primaria);
+      }
+      
+      .erro-msg {
+        color: red;
+        font-size: 0.85rem;
+        display: none; /* Escondido por padrão */
+        margin-top: 5px;
+      }
+      
+      /* Feedback visual de erro */
+      input.erro {
+        border-color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <a href="../index.html" class="logo">
+          <img src="../assets/icons/logo.svg" alt="Logo ONG" style="height: 40px;"> 
+          </a>
+        <nav class="main-nav">
+          <ul class="nav-list">
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="voluntariado.html" class="active">Seja Voluntário</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section-padrao section-cinza">
+        <div class="container">
+          <div class="section-header">
+            <h2>Faça a Diferença</h2>
+            <p>Junte-se ao nosso time de transformadores.</p>
+          </div>
+
+          <div class="form-container">
+            <form id="form-voluntario" novalidate>
+              <fieldset style="border: none; padding: 0; margin: 0;">
+                <legend class="sr-only">Dados Pessoais</legend> <div class="form-group">
+                  <label for="nome">Nome Completo</label>
+                  <input type="text" id="nome" name="nome" placeholder="Ex: João Silva" required>
+                  <span class="erro-msg">Por favor, digite seu nome completo.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" placeholder="joao@email.com" required>
+                  <span class="erro-msg">Digite um e-mail válido.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="interesse">Área de Interesse</label>
+                  <select id="interesse" name="interesse">
+                    <option value="">Selecione uma opção</option>
+                    <option value="educacao">Educação / Aulas</option>
+                    <option value="logistica">Logística / Transporte</option>
+                    <option value="admin">Administrativo</option>
+                    <option value="saude">Saúde / Bem-estar</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="motivacao">Por que quer ser voluntário?</label>
+                  <textarea id="motivacao" name="motivacao" rows="4" placeholder="Conte um pouco sobre você..."></textarea>
+                </div>
+              </fieldset>
+
+              <button type="submit" class="cta-button" style="width: 100%; margin-top: 10px;">Enviar Inscrição</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container">
+        <p class="copyright">&copy; 2024 ONG [Nome]. <a href="../index.html" style="color: var(--cor-primaria)">Voltar para Início</a></p>
+      </div>
+    </footer>
+
+    <script src="../js/form-validation.js"></script>
+  </body>
+</html>

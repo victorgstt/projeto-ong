@@ -1,0 +1,74 @@
+/* css/global.css */
+
+:root {
+  /* Paleta de Cores (Tema Verde e Amarelo - ONG Brasileira) */
+  --cor-primaria: #2E7D32;    /* Verde Floresta */
+  --cor-secundaria: #F9A825;  /* Amarelo Ouro */
+  --cor-fundo: #f4f4f4;       /* Cinza muito claro para fundo */
+  --cor-texto: #333333;       /* Cinza escuro para leitura */
+  --cor-branco: #ffffff;
+  
+  /* Espaçamentos Padrão */
+  --espaco-pequeno: 10px;
+  --espaco-medio: 20px;
+  --espaco-grande: 40px;
+
+  /* Tipografia */
+  --fonte-principal: 'Roboto', sans-serif;
+}
+
+/* Reset Universal - Remove margens padrão dos navegadores */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fonte-principal);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+/* Links sem sublinhado por padrão */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Listas sem bolinhas */
+ul {
+  list-style: none;
+}
+
+/* Imagens responsivas */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Container Central - Mantém o conteúdo alinhado no meio do ecrã */
+.container {
+  max-width: 1200px;
+  margin: 0 auto; /* Centraliza horizontalmente */
+  padding: 0 var(--espaco-medio);
+}
+
+/* Botão Padrão (CTA) */
+.cta-button, .btn-doar {
+  display: inline-block;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto);
+  padding: 10px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.cta-button:hover, .btn-doar:hover {
+  background-color: #c17900; /* Um tom mais escuro do amarelo no hover */
+  color: white;
+}

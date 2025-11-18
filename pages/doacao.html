@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faça sua Doação | ONG [Nome]</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <style>
+        /* Estilo da Barra de Progresso */
+        .meta-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .barra-fundo {
+            width: 100%;
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+        .barra-progresso {
+            height: 100%;
+            background-color: var(--cor-secundaria); /* Amarelo */
+            width: 0%; /* Começa em 0 e o JS anima */
+            transition: width 1.5s ease-in-out;
+        }
+        .opcoes-valor {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .btn-valor {
+            padding: 10px 20px;
+            border: 2px solid var(--cor-primaria);
+            background: transparent;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn-valor:hover {
+            background: var(--cor-primaria);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo"><img src="../assets/icons/logo.svg" alt="Logo" style="height: 40px;"></a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="doacao.html" class="active btn-doar">Doe Agora</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container section-padrao">
+        <section class="meta-container">
+            <h2>Meta da Campanha: "Reforma da Escola"</h2>
+            <p>Ajude-nos a atingir nossa meta mensal!</p>
+            
+            <div class="barra-fundo">
+                <div id="progresso" class="barra-progresso"></div>
+            </div>
+            
+            <p>Arrecadado: <strong id="valor-atual">R$ 0,00</strong> de R$ 50.000,00</p>
+            
+            <div class="opcoes-valor">
+                <button class="btn-valor" onclick="simularDoacao(20)">R$ 20</button>
+                <button class="btn-valor" onclick="simularDoacao(50)">R$ 50</button>
+                <button class="btn-valor" onclick="simularDoacao(100)">R$ 100</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Simulação de "Progresso em Tempo Real"
+        // Em um sistema real, esses números viriam do Back-end
+        let arrecadado = 35000; 
+        const meta = 50000;
+
+        function atualizarBarra() {
+            const porcentagem = (arrecadado / meta) * 100;
+            
+            // Manipulação do DOM
+            document.getElementById('progresso').style.width = porcentagem + '%';
+            document.getElementById('valor-atual').innerText = arrecadado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        // Simula uma doação quando clica no botão
+        function simularDoacao(valor) {
+            arrecadado += valor;
+            atualizarBarra();
+            alert(`Obrigado pela sua doação simbólica de R$ ${valor}!`);
+        }
+
+        // Inicia a barra ao carregar
+        setTimeout(atualizarBarra, 500); // Pequeno delay para efeito visual
+    </script>
+</body>
+</html>
