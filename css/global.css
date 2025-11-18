@@ -1,7 +1,7 @@
 /* css/global.css */
 
 :root {
-  /* --- 1. PALETA DE CORES (8+ Cores) --- */
+  /* --- 1. PALETA DE CORES (Design System) --- */
   /* Primária (Verde) */
   --cor-primaria-light: #66bb6a;
   --cor-primaria-main: #2e7d32;
@@ -14,23 +14,23 @@
 
   /* Neutros */
   --cor-branco: #ffffff;
-  --cor-fundo: #f5f5f5;
-  --cor-borda: #e0e0e0;
+  --cor-fundo: #f5f5f5;     /* Background geral */
+  --cor-borda: #e0e0e0;     /* Linhas sutis */
   --cor-texto-suave: #757575;
-  --cor-texto: #212121;
+  --cor-texto: #212121;     /* Texto principal */
 
-  /* Feedback */
+  /* Feedback (Validação) */
   --cor-sucesso: #388e3c;
   --cor-erro: #d32f2f;
 
-  /* --- 2. TIPOGRAFIA (5 Tamanhos) --- */
-  --font-xs: 0.75rem;   /* 12px */
-  --font-sm: 0.875rem;  /* 14px */
-  --font-md: 1rem;      /* 16px (Base) */
-  --font-lg: 1.25rem;   /* 20px */
-  --font-xl: 1.5rem;    /* 24px */
-  --font-xxl: 2rem;     /* 32px */
-  --font-display: 3rem; /* 48px */
+  /* --- 2. TIPOGRAFIA (Hierarquia) --- */
+  --font-xs: 0.75rem;   /* 12px - Legendas/Tags */
+  --font-sm: 0.875rem;  /* 14px - Textos auxiliares */
+  --font-md: 1rem;      /* 16px - Corpo padrão */
+  --font-lg: 1.25rem;   /* 20px - Subtítulos */
+  --font-xl: 1.5rem;    /* 24px - Títulos H3 */
+  --font-xxl: 2rem;     /* 32px - Títulos H2 */
+  --font-display: 3rem; /* 48px - Títulos Hero */
   
   --familia-fonte: 'Roboto', sans-serif;
 
@@ -54,14 +54,15 @@ body {
   line-height: 1.6;
 }
 
-h1 { font-size: var(--font-display); color: var(--cor-primaria-main); line-height: 1.2; }
-h2 { font-size: var(--font-xxl); color: var(--cor-primaria-dark); margin-bottom: var(--space-2); }
-h3 { font-size: var(--font-xl); margin-bottom: var(--space-1); }
+/* --- TIPOGRAFIA GERAL --- */
+h1 { font-size: var(--font-display); color: var(--cor-primaria-main); line-height: 1.2; margin-bottom: var(--space-3); }
+h2 { font-size: var(--font-xxl); color: var(--cor-primaria-dark); margin-bottom: var(--space-3); }
+h3 { font-size: var(--font-xl); margin-bottom: var(--space-2); color: var(--cor-texto); }
 p { margin-bottom: var(--space-2); color: var(--cor-texto-suave); }
-img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; transition: 0.3s; }
+img { max-width: 100%; display: block; }
 
-/* --- COMPONENTE: BOTÕES (Estados) --- */
+/* --- COMPONENTE: BOTÕES --- */
 .btn {
   display: inline-block;
   padding: var(--space-2) var(--space-4);
@@ -80,7 +81,7 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
   color: var(--cor-texto);
 }
 
-/* Estados Visuais */
+/* Estados Visuais (Hover, Focus, Active, Disabled) */
 .btn-primary:hover {
   background-color: var(--cor-secundaria-light);
   transform: translateY(-2px);
@@ -102,19 +103,54 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
   color: var(--cor-texto-suave);
   cursor: not-allowed;
   transform: none;
+  box-shadow: none;
+}
+
+/* --- COMPONENTE: FORMULÁRIOS (Novos para SPA) --- */
+form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: var(--font-sm);
+  color: var(--cor-texto);
+}
+
+.input-padrao {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+  background-color: var(--cor-branco);
+}
+
+.input-padrao:focus {
+  border-color: var(--cor-primaria-main);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+/* Mensagem de erro (Controlada pelo JS) */
+.msg-erro {
+  color: var(--cor-erro);
+  font-size: var(--font-xs);
+  margin-top: 5px;
+  display: none; /* Escondido por padrão */
+  font-weight: bold;
 }
 
 /* --- COMPONENTE: TAGS/BADGES --- */
 .tag {
   display: inline-block;
-  padding: 4px 8px;
+  padding: 4px 10px;
   background-color: var(--cor-primaria-light);
   color: var(--cor-primaria-dark);
-  border-radius: 12px;
+  border-radius: 16px;
   font-size: var(--font-xs);
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: var(--space-1);
+  margin-bottom: var(--space-2);
 }
 
 /* --- COMPONENTE: TOAST (Feedback) --- */
@@ -133,12 +169,12 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
   transform: translateX(-50%);
   font-size: var(--font-sm);
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.5s, bottom 0.5s;
 }
 
 .toast.show {
   visibility: visible;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  opacity: 1;
+  bottom: 30px;
 }
-
-@keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
-@keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }

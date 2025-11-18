@@ -1,98 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ONG [Nome] | Início</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONG [Nome] | SPA</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
-
-    <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
-  </head>
-
-  <body>
-    <div id="toast-box" class="toast">Bem-vindo!</div>
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div id="toast-box" class="toast"></div>
 
     <header class="main-header">
-      <div class="container">
-        <a href="index.html" class="logo">
-           <span style="font-size: 24px; font-weight: bold; color: var(--cor-primaria-main);">ONG<span style="color: var(--cor-secundaria-main);">.org</span></span>
-        </a>
-
-        <nav>
-          <button class="mobile-menu-btn" aria-label="Menu">
-            <span></span><span></span><span></span>
-          </button>
-
-          <ul class="nav-list">
-            <li><a href="index.html" class="active">Início</a></li>
-            
-            <li class="dropdown">
-              <a href="#" aria-haspopup="true">Projetos ▾</a>
-              <ul class="dropdown-menu">
-                <li><a href="pages/projetos.html">Todos os Projetos</a></li>
-                <li><a href="pages/projetos.html#educacao">Educação</a></li>
-                <li><a href="pages/projetos.html#social">Social</a></li>
-              </ul>
-            </li>
-
-            <li><a href="pages/blog.html">Blog</a></li>
-            <li><a href="pages/voluntariado.html">Voluntariado</a></li>
-            <li><a href="pages/doacao.html" class="btn btn-primary">Doe Agora</a></li>
-          </ul>
-        </nav>
-      </div>
+        <div class="container">
+            <a href="#home" class="logo">
+                <span style="font-size: 24px; font-weight: bold; color: var(--cor-primaria-main);">ONG<span style="color: var(--cor-secundaria-main);">.org</span></span>
+            </a>
+            <nav>
+                <button class="mobile-menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link">Início</a></li>
+                    <li><a href="#projetos" class="nav-link">Projetos</a></li>
+                    <li><a href="#blog" class="nav-link">Blog</a></li>
+                    <li><a href="#voluntariado" class="nav-link">Voluntariado</a></li>
+                    <li><a href="#doacao" class="btn btn-primary">Doe Agora</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-      <section class="hero-section">
-        <div class="container">
-          <h1>Transformando Vidas<br>Através da Ação</h1>
-          <p>Junte-se a mais de 1.000 voluntários e faça parte da mudança.</p>
-          <a href="pages/voluntariado.html" class="btn btn-primary">Quero Ajudar</a>
-        </div>
-      </section>
-
-      <section class="section-padrao">
-        <div class="container">
-          <div style="text-align: center; margin-bottom: var(--space-6);">
-            <h2>Nossas Iniciativas</h2>
-            <p>Confira os projetos recentes que precisam do seu apoio.</p>
-          </div>
-
-          <div id="lista-projetos" class="grid-12">
-             <p>Carregando...</p>
-          </div>
-        </div>
-      </section>
-    </main>
+    <main id="app"></main>
 
     <footer class="main-footer">
-      <div class="container grid-12">
-        <div class="footer-col col-4">
-          <h3>Sobre Nós</h3>
-          <p>Atuando desde 2024 para construir um mundo mais justo e igualitário.</p>
+        <div class="container grid-12">
+            <div class="footer-col col-4">
+                <h3>Sobre Nós</h3>
+                <p>Plataforma SPA desenvolvida para gestão de ONGs.</p>
+            </div>
+            <div class="footer-col col-4">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="#voluntariado">Seja Voluntário</a></li>
+                    <li><a href="#admin">Área Admin</a></li>
+                </ul>
+            </div>
+            <div class="footer-col col-4">
+                <h3>Contato</h3>
+                <p>contato@ong.org</p>
+            </div>
         </div>
-        <div class="footer-col col-4">
-          <h3>Links Rápidos</h3>
-          <ul style="list-style: none;">
-            <li><a href="pages/voluntariado.html">Seja Voluntário</a></li>
-            <li><a href="pages/admin-dashboard.html">Área Admin</a></li>
-          </ul>
+        <div style="text-align: center; margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
+            <p>© 2024 ONG. Todos os direitos reservados.</p>
         </div>
-        <div class="footer-col col-4">
-          <h3>Contato</h3>
-          <p>contato@ong.org</p>
-        </div>
-      </div>
-      <div style="text-align: center; margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
-        <p>© 2024 ONG Nome. Todos os direitos reservados.</p>
-      </div>
     </footer>
 
-    <script src="js/script.js"></script>
-  </body>
+    <script src="js/main.js"></script>
+</body>
 </html>
