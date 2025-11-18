@@ -1,74 +1,144 @@
 /* css/global.css */
 
 :root {
-  /* Paleta de Cores (Tema Verde e Amarelo - ONG Brasileira) */
-  --cor-primaria: #2E7D32;    /* Verde Floresta */
-  --cor-secundaria: #F9A825;  /* Amarelo Ouro */
-  --cor-fundo: #f4f4f4;       /* Cinza muito claro para fundo */
-  --cor-texto: #333333;       /* Cinza escuro para leitura */
+  /* --- 1. PALETA DE CORES (8+ Cores) --- */
+  /* Primária (Verde) */
+  --cor-primaria-light: #66bb6a;
+  --cor-primaria-main: #2e7d32;
+  --cor-primaria-dark: #005005;
+
+  /* Secundária (Amarelo) */
+  --cor-secundaria-light: #ffe54c;
+  --cor-secundaria-main: #ffc107;
+  --cor-secundaria-dark: #c79100;
+
+  /* Neutros */
   --cor-branco: #ffffff;
+  --cor-fundo: #f5f5f5;
+  --cor-borda: #e0e0e0;
+  --cor-texto-suave: #757575;
+  --cor-texto: #212121;
+
+  /* Feedback */
+  --cor-sucesso: #388e3c;
+  --cor-erro: #d32f2f;
+
+  /* --- 2. TIPOGRAFIA (5 Tamanhos) --- */
+  --font-xs: 0.75rem;   /* 12px */
+  --font-sm: 0.875rem;  /* 14px */
+  --font-md: 1rem;      /* 16px (Base) */
+  --font-lg: 1.25rem;   /* 20px */
+  --font-xl: 1.5rem;    /* 24px */
+  --font-xxl: 2rem;     /* 32px */
+  --font-display: 3rem; /* 48px */
   
-  /* Espaçamentos Padrão */
-  --espaco-pequeno: 10px;
-  --espaco-medio: 20px;
-  --espaco-grande: 40px;
+  --familia-fonte: 'Roboto', sans-serif;
 
-  /* Tipografia */
-  --fonte-principal: 'Roboto', sans-serif;
+  /* --- 3. ESPAÇAMENTO MODULAR (Escala 8px) --- */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
 }
 
-/* Reset Universal - Remove margens padrão dos navegadores */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* --- RESET BÁSICO --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: var(--fonte-principal);
+  font-family: var(--familia-fonte);
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
+  font-size: var(--font-md);
   line-height: 1.6;
 }
 
-/* Links sem sublinhado por padrão */
-a {
-  text-decoration: none;
-  color: inherit;
-}
+h1 { font-size: var(--font-display); color: var(--cor-primaria-main); line-height: 1.2; }
+h2 { font-size: var(--font-xxl); color: var(--cor-primaria-dark); margin-bottom: var(--space-2); }
+h3 { font-size: var(--font-xl); margin-bottom: var(--space-1); }
+p { margin-bottom: var(--space-2); color: var(--cor-texto-suave); }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-/* Listas sem bolinhas */
-ul {
-  list-style: none;
-}
-
-/* Imagens responsivas */
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* Container Central - Mantém o conteúdo alinhado no meio do ecrã */
-.container {
-  max-width: 1200px;
-  margin: 0 auto; /* Centraliza horizontalmente */
-  padding: 0 var(--espaco-medio);
-}
-
-/* Botão Padrão (CTA) */
-.cta-button, .btn-doar {
+/* --- COMPONENTE: BOTÕES (Estados) --- */
+.btn {
   display: inline-block;
-  background-color: var(--cor-secundaria);
-  color: var(--cor-texto);
-  padding: 10px 25px;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background 0.3s ease;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: var(--font-sm);
   cursor: pointer;
   border: none;
+  transition: all 0.3s ease;
+  text-align: center;
 }
 
-.cta-button:hover, .btn-doar:hover {
-  background-color: #c17900; /* Um tom mais escuro do amarelo no hover */
-  color: white;
+.btn-primary {
+  background-color: var(--cor-secundaria-main);
+  color: var(--cor-texto);
 }
+
+/* Estados Visuais */
+.btn-primary:hover {
+  background-color: var(--cor-secundaria-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.btn-primary:focus {
+  outline: 3px solid var(--cor-primaria-main);
+  outline-offset: 2px;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  background-color: var(--cor-secundaria-dark);
+}
+
+.btn:disabled {
+  background-color: var(--cor-borda);
+  color: var(--cor-texto-suave);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --- COMPONENTE: TAGS/BADGES --- */
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: var(--cor-primaria-light);
+  color: var(--cor-primaria-dark);
+  border-radius: 12px;
+  font-size: var(--font-xs);
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+}
+
+/* --- COMPONENTE: TOAST (Feedback) --- */
+.toast {
+  visibility: hidden;
+  min-width: 280px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: var(--space-2);
+  position: fixed;
+  z-index: 2000;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  font-size: var(--font-sm);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.toast.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+@keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
