@@ -1,5 +1,5 @@
 # 🌍 Plataforma Digital - ONG 
-
+PROJETO PARA A FACULDADE
 > "Conectando propósitos, transformando vidas através da tecnologia."
 
 ![Status](https://img.shields.io/badge/Status-Concluído-brightgreen)
